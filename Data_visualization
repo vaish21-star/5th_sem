@@ -1,0 +1,15 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("mtcars.csv")
+fig, axes = plt.subplots(2, 2, figsize=(10, 8))
+axes[0,0].hist(df['mpg'])
+
+axes[0,1].scatter(df['wt'], df['mpg'])
+
+df['am'].value_counts().plot(kind='bar',ax=axes[1,0])
+
+axes[1,1].boxplot(df['mpg'])
+
+plt.tight_layout()
+plt.show()
